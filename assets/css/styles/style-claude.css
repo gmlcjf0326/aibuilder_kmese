@@ -1,0 +1,521 @@
+/* style-claude.css 클로드 개선 스타일 */
+:root {
+	--primary-color: #0055ff;
+	--primary-dark: #0044cc;
+	--primary-light: #3377ff;
+	--secondary-color: #2c3e50;
+	--text-color: #2c3e50;
+	--text-light: #5d6d7e;
+	--light-bg: #f5f7fa;
+	--white: #ffffff;
+	--dark: #1a202c;
+	--border-color: #e2e8f0;
+}
+
+body {
+	font-family: "Nanum Gothic", sans-serif;
+}
+
+/* 헤더 스타일 */
+#site-header {
+	box-shadow: none;
+	background-color: rgba(255, 255, 255, 0.95);
+	backdrop-filter: blur(10px);
+}
+
+.header-inner {
+	height: 90px;
+}
+
+.logo img {
+	height: 45px;
+}
+
+.nav-list li {
+	margin-left: 2rem;
+}
+
+.nav-list a {
+	font-weight: 600;
+	position: relative;
+	padding: 0.5rem 0;
+}
+
+.nav-list a::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: var(--primary-color);
+	transition: width 0.3s ease;
+}
+
+.nav-list a:hover::after,
+.nav-list a.active::after {
+	width: 100%;
+}
+
+/* 히어로 슬라이더 */
+#hero-slider {
+	height: 700px;
+}
+
+.slide-content {
+	max-width: 1200px;
+	margin: 0 auto;
+	text-align: left;
+	padding-left: 3rem;
+}
+
+.slide-content h1 {
+	font-size: 3.5rem;
+	font-weight: 800;
+	margin-bottom: 1.5rem;
+	line-height: 1.2;
+}
+
+.slide-content p {
+	font-size: 1.25rem;
+	margin-bottom: 2rem;
+	max-width: 600px;
+}
+
+.slide-bg {
+	filter: brightness(0.5);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+	background-color: rgba(255, 255, 255, 0.2);
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	color: white;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+	font-size: 1.5rem;
+}
+
+/* 버튼 스타일 */
+.btn {
+	padding: 1rem 2rem;
+	border-radius: 30px;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	font-size: 0.875rem;
+}
+
+.btn-primary {
+	background-color: var(--primary-color);
+	box-shadow: 0 4px 15px rgba(0, 85, 255, 0.3);
+}
+
+.btn-primary:hover {
+	background-color: var(--primary-dark);
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(0, 85, 255, 0.4);
+}
+
+/* 섹션 헤더 */
+.section-header {
+	margin-bottom: 4rem;
+}
+
+.section-header h2 {
+	font-size: 2.5rem;
+	font-weight: 800;
+	margin-bottom: 1rem;
+	color: var(--dark);
+}
+
+.section-header h2::after {
+	display: none;
+}
+
+.section-header p {
+	font-size: 1.25rem;
+	color: var(--text-light);
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+/* 인트로 카드 */
+.intro-cards {
+	gap: 2rem;
+}
+
+.intro-card {
+	padding: 2.5rem;
+	border-radius: 16px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+	transition: all 0.4s ease;
+}
+
+.intro-card:hover {
+	transform: translateY(-15px);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.intro-card .icon {
+	font-size: 3rem;
+	margin-bottom: 1.5rem;
+	color: var(--primary-color);
+}
+
+.intro-card h3 {
+	font-size: 1.25rem;
+	margin-bottom: 1rem;
+	font-weight: 700;
+}
+
+.intro-card p {
+	color: var(--text-light);
+	line-height: 1.8;
+}
+
+/* 서비스 탭 */
+.service-tabs {
+	margin-top: 3rem;
+}
+
+.tab-nav {
+	margin-bottom: 3rem;
+	border-bottom: none;
+	gap: 1rem;
+}
+
+.tab-btn {
+	padding: 1rem 2rem;
+	background: var(--white);
+	border: none;
+	font-weight: 600;
+	color: var(--text-color);
+	border-radius: 30px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+	transition: all 0.3s ease;
+}
+
+.tab-btn::after {
+	display: none;
+}
+
+.tab-btn.active {
+	background-color: var(--primary-color);
+	color: var(--white);
+	box-shadow: 0 6px 15px rgba(0, 85, 255, 0.2);
+}
+
+.tab-btn:hover:not(.active) {
+	background-color: var(--light-bg);
+}
+
+.service-grid {
+	gap: 2rem;
+}
+
+.service-item {
+	padding: 2rem;
+	border-radius: 16px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+	transition: all 0.4s ease;
+}
+
+.service-item:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+	width: 70px;
+	height: 70px;
+	border-radius: 16px;
+	background-color: rgba(0, 85, 255, 0.1);
+	font-size: 1.75rem;
+	color: var(--primary-color);
+	margin-right: 1.5rem;
+}
+
+.service-info h3 {
+	font-size: 1.25rem;
+	margin-bottom: 0.75rem;
+	font-weight: 700;
+}
+
+.service-info p {
+	color: var(--text-light);
+	line-height: 1.8;
+}
+
+/* 전시회 필터 */
+.exhibition-filter {
+	margin-bottom: 3rem;
+}
+
+.filter-btn {
+	padding: 0.75rem 1.5rem;
+	border-radius: 30px;
+	font-weight: 600;
+	transition: all 0.3s ease;
+	background-color: var(--white);
+	border: 1px solid var(--border-color);
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+	background-color: var(--primary-color);
+	color: var(--white);
+	border-color: var(--primary-color);
+	box-shadow: 0 6px 15px rgba(0, 85, 255, 0.2);
+}
+
+/* 전시회 카드 */
+.exhibition-grid {
+	gap: 2rem;
+}
+
+.exhibition-card {
+	border-radius: 16px;
+	overflow: hidden;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+	transition: all 0.4s ease;
+}
+
+.exhibition-card:hover {
+	transform: translateY(-15px);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+	height: 220px;
+}
+
+.card-date {
+	background-color: var(--primary-color);
+	border-radius: 0 0 0 16px;
+	padding: 0.75rem 1rem;
+}
+
+.card-content {
+	padding: 1.5rem 2rem 2rem;
+}
+
+.card-category {
+	font-size: 0.875rem;
+	color: var(--primary-color);
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+}
+
+.card-content h3 {
+	font-size: 1.25rem;
+	margin-bottom: 0.75rem;
+	font-weight: 700;
+}
+
+.card-location {
+	margin-bottom: 1rem;
+}
+
+.card-location i {
+	color: var(--primary-color);
+}
+
+.card-desc {
+	margin-bottom: 1.5rem;
+	line-height: 1.8;
+}
+
+.btn-more {
+	font-weight: 600;
+	color: var(--primary-color);
+}
+
+/* 주요 실적 */
+.achievements-list {
+	max-width: 900px;
+}
+
+.achievement-item::before {
+	background-color: rgba(0, 85, 255, 0.1);
+}
+
+.achievement-year {
+	font-size: 1.75rem;
+	font-weight: 800;
+	color: var(--primary-color);
+}
+
+.achievement-content {
+	padding: 2rem;
+	border-radius: 16px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.achievement-content h3 {
+	font-size: 1.25rem;
+	margin-bottom: 0.75rem;
+	font-weight: 700;
+}
+
+.achievement-content p {
+	line-height: 1.8;
+}
+
+/* 뉴스레터 */
+#newsletter {
+	background: linear-gradient(135deg, #0055ff, #5e17eb);
+	padding: 5rem 0;
+}
+
+.newsletter-content h2 {
+	font-size: 2.5rem;
+	font-weight: 800;
+	margin-bottom: 1rem;
+}
+
+.newsletter-content p {
+	font-size: 1.25rem;
+	margin-bottom: 2rem;
+	opacity: 0.9;
+}
+
+.newsletter-form .form-group {
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+.newsletter-form input[type="email"] {
+	padding: 1.25rem 1.5rem;
+	border-radius: 30px 0 0 30px;
+	background-color: rgba(255, 255, 255, 0.15);
+	color: var(--white);
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-form .btn {
+	border-radius: 0 30px 30px 0;
+	background-color: var(--white);
+	color: var(--primary-color);
+	font-weight: 700;
+	padding: 1.25rem 2rem;
+}
+
+.newsletter-form .btn:hover {
+	background-color: var(--light-bg);
+}
+
+.form-check label {
+	font-size: 0.875rem;
+}
+
+/* 푸터 */
+#site-footer {
+	background-color: var(--dark);
+	padding-top: 5rem;
+}
+
+.footer-logo img {
+	height: 45px;
+	margin-bottom: 1.5rem;
+}
+
+.footer-desc {
+	line-height: 1.8;
+}
+
+.footer-col h3 {
+	font-size: 1.25rem;
+	margin-bottom: 2rem;
+	position: relative;
+}
+
+.footer-col h3::after {
+	content: "";
+	position: absolute;
+	bottom: -10px;
+	left: 0;
+	width: 40px;
+	height: 3px;
+	background-color: var(--primary-color);
+}
+
+.footer-links li {
+	margin-bottom: 0.75rem;
+}
+
+.contact-info i {
+	color: var(--primary-color);
+}
+
+.social-links a {
+	width: 40px;
+	height: 40px;
+	background-color: rgba(255, 255, 255, 0.1);
+	transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+	background-color: var(--primary-color);
+	transform: translateY(-5px);
+}
+
+.footer-bottom {
+	padding-top: 2rem;
+	margin-top: 3rem;
+}
+
+/* 반응형 조정 */
+@media (max-width: 992px) {
+	.slide-content h1 {
+		font-size: 2.75rem;
+	}
+
+	.section-header h2 {
+		font-size: 2.25rem;
+	}
+}
+
+@media (max-width: 767px) {
+	.header-inner {
+		height: 70px;
+	}
+
+	#hero-slider {
+		height: 550px;
+	}
+
+	.slide-content {
+		text-align: center;
+		padding: 0 1.5rem;
+	}
+
+	.slide-content h1 {
+		font-size: 2.25rem;
+	}
+
+	.slide-content p {
+		font-size: 1rem;
+	}
+
+	.tab-nav {
+		flex-wrap: wrap;
+	}
+
+	.tab-btn {
+		flex: 0 0 calc(50% - 0.5rem);
+	}
+
+	.service-item {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.service-icon {
+		margin: 0 auto 1.5rem;
+	}
+}

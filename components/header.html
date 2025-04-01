@@ -1,0 +1,144 @@
+<!-- components/header.html -->
+<header id="site-header">
+	<div class="container">
+		<div class="header-inner">
+			<div class="logo">
+				<a
+					href="/2.kmese홈페이지/index.html#"
+					id="home-link">
+					<img
+						src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 50'%3E%3Ctext x='10' y='35' fill='%23e72d2e' font-family='Arial' font-weight='bold' font-size='35'%3EK.messe%3C/text%3E%3C/svg%3E"
+						alt="K.messe 로고" />
+				</a>
+			</div>
+
+			<div class="style-switcher">
+				<select id="theme-selector">
+					<option value="style-clone.css">스타일 1 (플랜아이)</option>
+					<option value="style-claude.css">스타일 2 (개선된 버전)</option>
+					<option value="style-modern.css">스타일 3 (2025 트렌드)</option>
+				</select>
+			</div>
+
+			<nav class="main-nav">
+				<button
+					class="menu-toggle"
+					aria-label="메뉴 열기">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<ul class="nav-list">
+					<li>
+						<a
+							href="/2.kmese홈페이지/index.html#"
+							id="home-link"
+							>홈</a
+						>
+					</li>
+					<li>
+						<a
+							href="/2.kmese홈페이지/about/index.html"
+							id="about-link"
+							>회사소개</a
+						>
+					</li>
+					<li>
+						<a
+							href="/2.kmese홈페이지/index.html#services"
+							id="services-link"
+							>사업안내</a
+						>
+					</li>
+					<li>
+						<a
+							href="/2.kmese홈페이지/index.html#exhibitions"
+							id="exhibitions-link"
+							>전시회 정보</a
+						>
+					</li>
+					<li>
+						<a
+							href="/2.kmese홈페이지/index.html#achievements"
+							id="achievements-link"
+							>주요실적</a
+						>
+					</li>
+					<li>
+						<a
+							href="/2.kmese홈페이지/index.html#newsletter"
+							id="contact-link"
+							>문의하기</a
+						>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const currentPath = window.location.pathname;
+			const homeLink = document.getElementById("home-link");
+			const aboutLink = document.getElementById("about-link");
+
+			// 현재 페이지에 따라 활성 링크 설정
+			if (currentPath.includes("/about/")) {
+				aboutLink.classList.add("active");
+			} else {
+				homeLink.classList.add("active");
+			}
+
+			// 부드러운 스크롤 처리
+			document.querySelectorAll('a[href*="#"]').forEach((link) => {
+				link.addEventListener("click", function (e) {
+					// 현재 URL이 메인 페이지가 아니면 기본 동작 실행
+					if (currentPath.includes("/about/")) {
+						return;
+					}
+
+					const href = this.getAttribute("href");
+					// #이 포함된 링크만 처리
+					if (href.includes("#")) {
+						const sectionId = href.split("#")[1];
+						const targetSection = document.getElementById(sectionId);
+
+						if (targetSection) {
+							e.preventDefault();
+							const headerHeight =
+								document.getElementById("site-header").offsetHeight;
+							const targetPosition = targetSection.offsetTop - headerHeight;
+
+							window.scrollTo({
+								top: targetPosition,
+								behavior: "smooth",
+							});
+
+							// URL 해시 업데이트
+							history.pushState(null, null, `#${sectionId}`);
+						}
+					}
+				});
+			});
+
+			// 모바일 메뉴 토글
+			const menuToggle = document.querySelector(".menu-toggle");
+			const navList = document.querySelector(".nav-list");
+
+			if (menuToggle && navList) {
+				menuToggle.addEventListener("click", function () {
+					this.classList.toggle("active");
+					navList.classList.toggle("active");
+				});
+
+				// 모바일 메뉴 클릭시 자동으로 닫기
+				navList.querySelectorAll("a").forEach((link) => {
+					link.addEventListener("click", () => {
+						menuToggle.classList.remove("active");
+						navList.classList.remove("active");
+					});
+				});
+			}
+		});
+	</script>
+</header>

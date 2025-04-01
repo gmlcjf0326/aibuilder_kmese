@@ -1,0 +1,153 @@
+<!-- components/footer.html -->
+<footer id="site-footer">
+	<div class="container">
+		<div class="footer-main">
+			<div class="footer-col">
+				<div class="footer-logo">
+					<img
+						src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 50'%3E%3Ctext x='10' y='35' fill='white' font-family='Arial' font-weight='bold' font-size='35'%3EK.messe%3C/text%3E%3C/svg%3E"
+						alt="K.messe 로고" />
+				</div>
+				<p class="footer-desc">
+					비즈니스를 위한 해외전시회 전문 여행사로서 언제나 변함 없이 고객만족을
+					실천할 수 있도록 진정한 해외전시회 전문 여행사가 되고자 하는 의지를
+					담았습니다.
+				</p>
+			</div>
+
+			<div class="footer-col">
+				<h3>회사 정보</h3>
+				<ul class="footer-links">
+					<li>
+						<a
+							href="/2.kmese홈페이지/index.html#"
+							id="services-link"
+							>홈</a
+						>
+					</li>
+					<li>
+						<a
+							href="/2.kmese홈페이지/about/index.html"
+							id="about-link"
+							>회사소개</a
+						>
+					</li>
+					<li>
+						<a
+							href="/2.kmese홈페이지/index.html#services"
+							id="services-link"
+							>사업안내</a
+						>
+					</li>
+					<li>
+						<a
+							href="/2.kmese홈페이지/index.html#exhibitions"
+							id="exhibitions-link"
+							>전시회 정보</a
+						>
+					</li>
+					<li>
+						<a
+							href="/2.kmese홈페이지/index.html#achievements"
+							id="achievements-link"
+							>주요실적</a
+						>
+					</li>
+					<li>
+						<a
+							href="/2.kmese홈페이지/index.html#newsletter"
+							id="contact-link"
+							>문의하기</a
+						>
+					</li>
+				</ul>
+			</div>
+
+			<div class="footer-col">
+				<h3>연락처</h3>
+				<ul class="contact-info">
+					<li>
+						<i class="fas fa-map-marker-alt"></i> 10564 경기도 고양시 덕양구
+						원흥3로 16, 401호(원흥동 KB중앙타워)
+					</li>
+					<li><i class="fas fa-phone"></i> 02-1234-5678</li>
+					<li><i class="fas fa-envelope"></i> info@kmesse.co.kr</li>
+				</ul>
+			</div>
+
+			<div class="footer-col">
+				<h3>소셜 미디어</h3>
+				<ul class="social-links">
+					<li>
+						<a href="#"><i class="fab fa-facebook-f"></i></a>
+					</li>
+					<li>
+						<a href="#"><i class="fab fa-twitter"></i></a>
+					</li>
+					<li>
+						<a href="#"><i class="fab fa-instagram"></i></a>
+					</li>
+					<li>
+						<a href="#"><i class="fab fa-linkedin-in"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<p>&copy; 2025 (주)케이메세. All Rights Reserved.</p>
+			<ul class="footer-bottom-links">
+				<li><a href="#">개인정보처리방침</a></li>
+				<li><a href="#">이용약관</a></li>
+				<li><a href="#">사이트맵</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<script>
+		function navigateAbout() {
+			// 현재 경로 확인
+			if (window.location.pathname.includes("/about/")) {
+				window.location.href = "index.html";
+			} else {
+				window.location.href = "about/index.html";
+			}
+		}
+
+		document.addEventListener("DOMContentLoaded", function () {
+			// 부드러운 스크롤 처리
+			document
+				.querySelectorAll('.footer-links a[href*="#"]')
+				.forEach((link) => {
+					link.addEventListener("click", function (e) {
+						// 현재 URL이 메인 페이지가 아니면 기본 동작 실행
+						if (window.location.pathname.includes("/about/")) {
+							return;
+						}
+
+						const href = this.getAttribute("href");
+						// #이 포함된 링크만 처리
+						if (href.includes("#")) {
+							const sectionId = href.split("#")[1];
+							const targetSection = document.getElementById(sectionId);
+
+							if (targetSection) {
+								e.preventDefault();
+								const headerHeight =
+									document.getElementById("site-header").offsetHeight;
+								const targetPosition = targetSection.offsetTop - headerHeight;
+
+								window.scrollTo({
+									top: targetPosition,
+									behavior: "smooth",
+								});
+
+								// URL 해시 업데이트
+								history.pushState(null, null, `#${sectionId}`);
+							}
+						}
+					});
+				});
+		});
+	</script>
+</footer>

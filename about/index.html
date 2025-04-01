@@ -448,43 +448,11 @@
 
 		<div id="footer-placeholder"></div>
 
-		<!-- 스크립트 -->
+		<!-- JavaScript -->
 		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 		<script src="../assets/js/components.js"></script>
 		<script src="../assets/js/dummy-images.js"></script>
 		<script src="../assets/js/main.js"></script>
 		<script src="../assets/js/style-switcher.js"></script>
-		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				// AOS 초기화
-				AOS.init({
-					duration: 1000,
-					once: true,
-					offset: 100,
-				});
-
-				// 네비게이션 링크 수정
-				const servicesLink = document.getElementById("services-link");
-				const exhibitionsLink = document.getElementById("exhibitions-link");
-				const achievementsLink = document.getElementById("achievements-link");
-				const contactLink = document.getElementById("contact-link");
-
-				// 메인 페이지의 섹션으로 이동하는 링크 수정
-				const links = [
-					servicesLink,
-					exhibitionsLink,
-					achievementsLink,
-					contactLink,
-				];
-				links.forEach((link) => {
-					if (link) {
-						const href = link.getAttribute("href");
-						if (href.startsWith("#")) {
-							link.href = "../index.html" + href;
-						}
-					}
-				});
-			});
-		</script>
 	</body>
 </html>
